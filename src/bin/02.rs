@@ -24,7 +24,7 @@ pub fn part_one(input: &str) -> Option<u64> {
         // Track last level
         let mut last_level = report[0];
 
-        // Start with report is true, set false and break if conditions not held
+        // Start with report is safe, set false and break if conditions not held
         let mut report_safe = true;
 
         for level in &report[1..] {
@@ -117,17 +117,14 @@ pub fn part_two(input: &str) -> Option<u64> {
 }
 
 pub fn parse_nums(input: &str) -> Vec<Vec<u64>> {
-    let mut reports: Vec<Vec<u64>> = Vec::new();
-
-    for line in input.lines() {
-        reports.push(
+    input
+        .lines()
+        .map(|line| {
             line.split_whitespace()
                 .map(|level| level.parse::<u64>().unwrap())
-                .collect(),
-        );
-    }
-
-    reports
+                .collect()
+        })
+        .collect()
 }
 
 #[cfg(test)]
