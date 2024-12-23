@@ -25,7 +25,8 @@ pub fn part_one(input: &str) -> Option<u64> {
     Some(total_occurences)
 }
 
-/// Given the same grid as above, instead computes the number of times
+/// Given the same grid as above, instead computes the number of times an "X-MAS" occurs,
+/// i.e. two occurrences of the string "MAS" form a cross.
 pub fn part_two(input: &str) -> Option<u64> {
     let grid = parse_grid(input);
 
