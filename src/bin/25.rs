@@ -7,14 +7,16 @@ pub fn part_one(input: &str) -> Option<u64> {
 
     for lock in locks.iter() {
         for key in keys.iter() {
-            total_fitting += lock.iter().zip(key).all(|p| p.0 + p.1 <= 5)
+            if lock.iter().zip(key).all(|p| p.0 + p.1 <= 5) {
+                total_fitting += 1;
+            }
         }
     }
 
     Some(total_fitting)
 }
 
-pub fn part_two(input: &str) -> Option<u64> {
+pub fn part_two(_input: &str) -> Option<u64> {
     None
 }
 
